@@ -18,6 +18,7 @@ import { Edit, Delete, ArrowBack } from "@mui/icons-material";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { api } from "../services/api";
 
 const ListarPerfil = () => {
   const [usuarios, setUsuarios] = useState([]);
@@ -32,7 +33,7 @@ const ListarPerfil = () => {
 
   const buscarUsuarios = async () => {
     try {
-      const res = await axios.get("http://localhost:3001/api/usuario");
+      const res = await api.get("/api/usuario");
       setUsuarios(res.data);
     } catch (err) {
       console.error("Erro ao buscar usuários:", err);
@@ -41,7 +42,7 @@ const ListarPerfil = () => {
 
   const deleteUser = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/api/usuario/${id}`);
+      await api.delete(`/api/usuario/${id}`);
       // Atualiza a lista após deletar
       // Também ajusta página atual caso fique vazia
       const novaLista = usuarios.filter((u) => u.id !== id);
@@ -56,10 +57,7 @@ const ListarPerfil = () => {
 
   const salvarEdicao = async () => {
     try {
-      await axios.put(
-        `http://localhost:3001/api/usuario/${editandoUsuario.id}`,
-        editandoUsuario
-      );
+      await api.put(`/api/usuario/${editandoUsuario.id}`, editandoUsuario);
       setEditandoUsuario(null);
       buscarUsuarios();
     } catch (err) {

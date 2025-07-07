@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { Button } from "@mui/material";
 import { ArrowBack } from "@mui/icons-material";
 import { useParams, useNavigate } from "react-router-dom";
+import { api } from "../services/api";
 
 export default function VerPerfil() {
   const [usuario, setUsuario] = useState(null);
@@ -13,8 +13,8 @@ export default function VerPerfil() {
     setUsuario(null);
     setLoading(true);
 
-    axios
-      .get(`http://localhost:3001/api/usuario/${id}`)
+    api
+      .get(`/api/usuario/${id}`)
       .then((res) => {
         setUsuario(res.data);
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { api } from "../services/api";
 
 export default function PerfilUsuario() {
   const [usuario, setUsuario] = useState({
@@ -16,8 +16,8 @@ export default function PerfilUsuario() {
   const [msg, setMsg] = useState("");
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3001/api/usuario")
+    api
+      .get("/api/usuario")
       .then((res) => {
         setLoading(false);
       })
@@ -44,8 +44,8 @@ export default function PerfilUsuario() {
   function handleSubmit(e) {
     e.preventDefault();
     setMsg("");
-    axios
-      .post("http://localhost:3001/api/usuario", usuario)
+    api
+      .post("/api/usuario", usuario)
       .then(() => setMsg("✅ Dados salvos com sucesso!"))
       .catch(() => setMsg("❌ Erro ao salvar dados."));
   }
