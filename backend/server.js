@@ -1,9 +1,11 @@
 const express = require("express");
 const cors = require("cors");
-const { sequelize } = require("./models/usuario"); // importa a instancia Sequelize configurada
+const { sequelize } = require("./models/usuario"); // importa a instancia Sequelize configuradaco
+const dotenv = require("dotenv");
 
 const app = express();
-const PORT = 3001;
+const port = process.env.PORT || 3306;
+app.listen(port, () => console.log(`Servidor rodando na porta ${port}`));
 
 app.use(cors());
 app.use(express.json());
