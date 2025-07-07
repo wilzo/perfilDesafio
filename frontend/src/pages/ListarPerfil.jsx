@@ -125,7 +125,7 @@ const ListarPerfil = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {usuariosPagina.map((usuario, index) => (
+            {usuariosPagina?.map((usuario, index) => (
               <TableRow
                 key={usuario.id}
                 sx={{
