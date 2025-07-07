@@ -33,7 +33,7 @@ const ListarPerfil = () => {
   const buscarUsuarios = async () => {
     try {
       const res = await api.get("/api/usuario");
-      console.log(process.env.API_URL, "test");
+
       setUsuarios(res.data);
     } catch (err) {
       console.error("Erro ao buscar usuários:", err);
