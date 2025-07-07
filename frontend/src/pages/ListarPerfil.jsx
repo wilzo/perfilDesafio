@@ -17,7 +17,6 @@ import {
 import { Edit, Delete, ArrowBack } from "@mui/icons-material";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { api } from "../services/api";
 
 const ListarPerfil = () => {
@@ -34,6 +33,7 @@ const ListarPerfil = () => {
   const buscarUsuarios = async () => {
     try {
       const res = await api.get("/api/usuario");
+      console.log(process.env.API_URL, "test");
       setUsuarios(res.data);
     } catch (err) {
       console.error("Erro ao buscar usuários:", err);
