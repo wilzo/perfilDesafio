@@ -1,6 +1,6 @@
 const Usuario = require("../models/usuario");
 
-exports.salvarUsuario = async (req, res) => {
+exports.saveUser = async (req, res) => {
   console.log("Dados recebidos no POST:", req.body);
   try {
     const usuario = await Usuario.create(req.body);
@@ -20,8 +20,23 @@ exports.getUsuario = async (req, res) => {
     res.status(500).json({ erro: err.message });
   }
 };
+exports.getUserById = async (req, res) => {
+  const { id } = req.params;
 
-exports.atualizarUsuario = async (req, res) => {
+  try {
+    const usuario = await Usuario.findByPk(id);
+    if (!usuario) {
+      return res.status(404).json({ error: "Usuário não encontrado" });
+    }
+    res.json(usuario);
+  } catch (err) {
+    console.error("Erro ao buscar usuário por ID:", err.message);
+    console.error(err); // 👈 importante
+    res.status(500).json({ error: err.message });
+  }
+};
+
+exports.updateUser = async (req, res) => {
   const { id } = req.params;
   try {
     const usuario = await Usuario.findByPk(id);
@@ -33,7 +48,7 @@ exports.atualizarUsuario = async (req, res) => {
   }
 };
 
-exports.deletarUsuario = async (req, res) => {
+exports.deleteUser = async (req, res) => {
   const { id } = req.params;
   try {
     const usuario = await Usuario.findByPk(id);
