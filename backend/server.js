@@ -1,11 +1,9 @@
 const express = require("express");
 const cors = require("cors");
-const { sequelize } = require("./models/usuario"); // importa a instancia Sequelize configuradaco
-const dotenv = require("dotenv");
+const { sequelize } = require("./models/usuario");
 
 const app = express();
-const port = process.env.PORT || 3306;
-app.listen(port, () => console.log(`Servidor rodando na porta ${port}`));
+const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());
@@ -13,7 +11,6 @@ app.use(express.json());
 const usuarioRoutes = require("./routes/usuarioRoutes");
 app.use("/api", usuarioRoutes);
 
-// Sincroniza o banco e só depois inicia o servidor
 sequelize
   .sync()
   .then(() => {
