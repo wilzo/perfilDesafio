@@ -1,92 +1,85 @@
-# 📋 Projeto de Listagem de Perfis
+📋 Projeto de Listagem de Perfis
+Este projeto é uma aplicação Fullstack para cadastro, edição, visualização e listagem de perfis de usuários.
+Ele foi desenvolvido com React no frontend e Node.js + MySQL no backend, utilizando Axios para requisições HTTP e Sequelize como ORM.
 
-Este projeto é uma aplicação fullstack para cadastro, edição, visualização e listagem de perfis de usuários. Ele foi desenvolvido com React no frontend e Node.js com MySQL no backend, utilizando Axios para requisições e Sequelize para ORM.
+🔗 Acesse o projeto online:
+👉 https://perfil-desafio.vercel.app/
 
----
+🚀 O frontend está hospedado na Vercel, enquanto o backend (Node.js + MySQL) está hospedado na Railway.
 
-## 🚀 Tecnologias Utilizadas
+🚀 Tecnologias Utilizadas
+💻 Frontend (React):
+React 18
 
-### 💻 Frontend (React):
-- **React 18**
-- **Material UI (MUI)**
-- **Axios**
-- **React Router DOM** 
-- **Tailwind CSS** 
+Material UI (MUI)
 
-### 🛠 Backend (Node.js):
-- **Node.js**
-- **Express**
-- **Sequelize** 
-- **MySQL2** 
-- **Dotenv** 
-- **Cors**
-- **Body-parser**
+Axios
 
-## 🎯 Funcionalidades
+React Router DOM
 
-- Criar novo perfil com nome, imagem, biografia e informações pessoais
-- Editar perfil existente
-- Excluir perfis
-- Visualizar dados completos de um perfil
-- Listar todos os perfis cadastrados
+Tailwind CSS
 
----
+🛠 Backend (Node.js):
+Node.js
 
-## 🏁 Como executar o projeto
+Express
 
-### Pré-requisitos
+Sequelize
 
-- Node.js (v18+)
-- MySQL
-- Git
+MySQL2
 
----
+Dotenv
 
-## ⚙️ Configurando o Backend
+CORS
 
-1. **Clone o repositório:**
+Body-parser
+
+🎯 Funcionalidades
+✅ Criar novo perfil com nome, imagem, biografia e informações pessoais
+
+✅ Editar perfil existente
+
+✅ Excluir perfis
+
+✅ Visualizar dados completos de um perfil
+
+✅ Listar todos os perfis cadastrados
+
+🏁 Como executar o projeto localmente
+✅ Pré-requisitos
+Node.js (v18+)
+
+MySQL
+
+Git
+
+⚙️ Configurando o Backend
+Clone o repositório:
 
 git clone https://github.com/wilzo/perfilDesafio.git
 cd perfilDesafio
 
+Instale as dependências:
 
-2. **Instale as depêndencias**
 
 npm install
 npm install @mui/material @emotion/react @emotion/styled
 npm install @mui/icons-material
 npm install axios react-router-dom
+Configure o arquivo .env:
 
-3. **Configure o .env**
 
-Crie um arquivo .env com:
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=sua_senha
-DB_NAME=perfilusuario
-DB_PORT=3306
-
-4. **Crie o banco de dados no MYSQL**
+Crie o banco de dados no MySQL:
 
 CREATE DATABASE perfilusuario;
 
-5. **Inicie o servidor no backend e no frontend**
+Inicie os servidores:
 
+# Backend
+cd backend
 node server.js
+
+# Frontend
+cd..
+cd frontend
 npm start
-
-6.**Estrutura do projeto**
-
-perfilDesafio/
-├── backend/
-│   ├── models/
-│   ├── routes/
-│   ├── controllers/
-│   └── server.js
-├── frontend/
-│   ├── src/
-│   │   ├── pages/
-│   │   ├── components/
-│   │   └── App.jsx
-├── README.md
-└── .gitignore
