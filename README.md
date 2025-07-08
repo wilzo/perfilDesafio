@@ -1,8 +1,4 @@
 
-![Tela inicial do projeto](![image](https://github.com/user-attachments/assets/01c52045-101b-425e-b99a-71e5ab46d1d7)
-)
-
-
 
 📋 Projeto de Listagem de Perfis
 Este projeto é uma aplicação Fullstack para cadastro, edição, visualização e listagem de perfis de usuários.
